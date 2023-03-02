@@ -1,0 +1,30 @@
+[helpers]
+
+[hyprland.files]
+"hypr/hyprland.conf" = "~/.config/hypr/hyprland.conf"
+"hypr/cleanup_after_start.sh" = "~/.config/hypr/cleanup_after_start.sh"
+
+[hyprland.variables]
+active_border = "f5c2e7"
+inactive_border = "414458"
+mouse_sensitivity = 0
+
+# Local variables:
+# main_monitor
+# secondary_monitor
+# keyboards
+# mouse_sensitivity
+# secondary_sink
+# active_screenshot_keybind
+# area_screenshot_keybind
+# all_screenshot_keybind
+
+[hyprpaper]
+depends = ["hyprland"]
+
+[hyprpaper.files]
+"hypr/hyprpaper.conf" = "~/.config/hypr/hyprpaper.conf"
+
+# Local variables:
+# main_wallpaper
+# secondary_wallpaper

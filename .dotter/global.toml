@@ -28,3 +28,14 @@ depends = ["hyprland"]
 # Local variables:
 # main_wallpaper
 # secondary_wallpaper
+
+[alacritty]
+depends = ["hyprland"]
+
+[alacritty.files]
+"alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
+"alacritty/tokyonight_storm.yml" = "~/.config/alacritty/tokyonight_storm.yml"
+
+[alacritty.variables]
+term_padding = 12
+term_font_size = 10

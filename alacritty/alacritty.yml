@@ -1,0 +1,27 @@
+import:
+  - ~/.config/alacritty/tokyonight_storm.yml
+
+window:
+  opacity: 1
+  {{#if term_padding}}
+  padding:
+    x: {{ term_padding }}
+    y: {{ term_padding }}
+    dynamic_padding: true
+    decorations: none
+  {{/if}}
+
+font:
+  normal:
+    family: monospace
+
+  size: {{ term_font_size }}
+
+  draw_bold_text_with_bright_colors: false
+
+cursor:
+  style:
+    shape: beam
+
+shell:
+  program: /bin/fish

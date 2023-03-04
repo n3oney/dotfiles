@@ -2,7 +2,7 @@ import:
   - ~/.config/alacritty/tokyonight_storm.yml
 
 window:
-  opacity: 1
+  opacity: 0.9
   {{#if term_padding}}
   padding:
     x: {{ term_padding }}
@@ -25,3 +25,6 @@ cursor:
 
 shell:
   program: /bin/fish
+
+colors:
+  transparent_background_colors: true

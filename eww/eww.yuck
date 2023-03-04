@@ -1,0 +1,64 @@
+(defwidget bar [screen]
+  (centerbox :orientation "v"
+    :class "ewwbar"
+    (box :class "left"
+      :valign "start"
+      (left :screen screen))
+    (box :class "center"
+      :valign "middle"
+      (middle :screen screen))
+    (box :class "right"
+      :valign "end"
+      (right :screen screen))
+  )
+)
+
+(defwidget left [screen]
+  (box :orientation "v"
+    :halign "middle"
+    (poweroff)
+    (windows))
+)
+
+(defwidget middle []
+  (time)
+)
+
+(defwidget time []
+  (box :orientation "v"
+       :class "time"
+    hour minute second))
+
+(defpoll hour :interval "1s" "date +%H")
+(defpoll minute :interval "1s" "date +%M")
+(defpoll second :interval "1s" "date +%S")
+
+(defwidget poweroff []
+  (button :class "poweroff" :onclick "poweroff" "")
+)
+
+(defwidget windows []
+  (button :class "windows" :onclick "sudo efibootmgr --bootnext 0000 && sudo reboot" "")
+)
+
+(defwidget right [screen]
+  (box :orientation "v"
+     (label :class volume-class :text volume)
+     (label :class volume-speakers-class :text volume-speakers)
+    ))
+
+(deflisten volume-class :initial "volume" "./audio.sh muted")
+(deflisten volume-speakers-class :initial "volume" "./audio.sh speaker-muted")
+(deflisten volume :initial "0" "./audio.sh volume")
+(deflisten volume-speakers :initial "0" "./audio.sh volume-speakers")
+
+(defwindow bar
+  :stacking "fg"
+  :monitor 0
+  :reserve (struts :distance "0px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  :geometry (geometry :x 0 :y 0 :width "60px" :height "100%")
+  :anchor "top left"
+  (bar :screen 0)
+)

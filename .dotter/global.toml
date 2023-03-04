@@ -44,5 +44,15 @@ depends = ["hyprland"]
 term_padding = 12
 term_font_size = 10
 
+
+[eww]
+depends = ["hyprland"]
+
+[eww.files]
+"eww/eww.yuck" = "~/.config/eww/eww.yuck"
+"eww/eww.scss" = "~/.config/eww/eww.scss"
+"eww/audio.sh" = "~/.config/eww/audio.sh"
+
+
 [neovim.files]
 "neovim.lua" = "~/.config/nvim/lua/user/init.lua"

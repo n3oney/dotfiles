@@ -3,11 +3,15 @@
 [hyprland.files]
 "hypr/hyprland.conf" = "~/.config/hypr/hyprland.conf"
 "hypr/cleanup_after_start.sh" = "~/.config/hypr/cleanup_after_start.sh"
+"hypr/fonts.conf" = "~/.config/fontconfig/fonts.conf"
 
 [hyprland.variables]
 active_border = "f5c2e7"
 inactive_border = "414458"
 mouse_sensitivity = 0
+sans_font = "SF Pro Display"
+serif_font = "New York"
+mono_font = "FiraCode Nerd Font"
 
 # Local variables:
 # main_monitor

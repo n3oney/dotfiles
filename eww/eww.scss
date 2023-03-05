@@ -14,7 +14,7 @@
   .time {
     font-family: monospace;
     font-weight: 700;
-    color: #00a0b7;
+    color: #8f98e0;
     font-size: 20px;
   }
 
@@ -23,43 +23,46 @@
   }
 
   .time > label:last-child {
-    opacity: 0.25;
+    opacity: 0.4;
   }
 
-  .poweroff {
+  .poweroff,
+  .reboot {
     font-size: 24px;
-    color: #f25022;
   }
 
-  .windows,
-  .poweroff {
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
+  .power button {
+    color: rgba(255, 255, 255, 0.2);
+    transition: color 0.2s ease;
   }
 
-  .windows:hover,
-  .poweroff:hover {
-    opacity: 1;
-  }
-
-  .windows {
+  .windows:hover {
     color: #00a4ef;
   }
 
-  .volume {
-    color: #65a5f8;
-    font-weight: 600;
-    font-size: 18px;
-    transition: color 0.3s ease;
-  }
-
-  .volume.muted {
+  .poweroff:hover {
     color: #f25022;
   }
 
+  .reboot:hover {
+    color: #91b6e6;
+  }
+
+  .volume {
+    color: #91b6e6;
+    font-weight: 600;
+    font-size: 24px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .volume.muted {
+    opacity: 0.3;
+  }
+
   // Headphones volume
-  .volume:first-child {
-    margin-bottom: 3px;
+  .volume:last-child {
+    margin-bottom: 12px;
   }
 }
 

@@ -5,7 +5,7 @@
       :valign "start"
       (left :screen screen))
     (box :class "center"
-      :valign "middle"
+      :valign "center"
       (middle :screen screen))
     (box :class "right"
       :valign "end"
@@ -14,10 +14,7 @@
 )
 
 (defwidget left [screen]
-  (box :orientation "v"
-    :halign "middle"
-    (poweroff)
-    (windows))
+  (power)
 )
 
 (defwidget middle []
@@ -33,18 +30,53 @@
 (defpoll minute :interval "1s" "date +%M")
 (defpoll second :interval "1s" "date +%S")
 
+(defwidget power []
+  (eventbox
+    :onhover "eww update show_power=true"
+    :onhoverlost "eww update show_power=false"
+
+    (box
+      :orientation "v"
+      :space-evenly false
+      :spacing 2
+      :class "power"
+      (poweroff)
+      (revealer
+        :transition "slidedown"
+        :reveal show_power
+        :duration "550ms"
+        (box
+          :orientation "v"
+          :space-evenly false
+          :spacing 2
+          (windows)
+          (reboot)
+          )
+        )
+      )
+    )
+  )
+
+(defvar show_power false)
+
 (defwidget poweroff []
   (button :class "poweroff" :onclick "poweroff" "")
 )
 
 (defwidget windows []
-  (button :class "windows" :onclick "sudo efibootmgr --bootnext 0000 && sudo reboot" "")
+  (button :class "windows" :onclick "sudo efibootmgr --bootnext 0000 && reboot" "")
+)
+
+(defwidget reboot []
+  (button :class "reboot" :onclick "reboot" "")
 )
 
 (defwidget right [screen]
   (box :orientation "v"
-     (label :class volume-class :text volume)
-     (label :class volume-speakers-class :text volume-speakers)
+      :space-evenly false
+    :spacing 12
+     (label :class volume-class :text volume :angle 270)
+     (label :class volume-speakers-class :text volume-speakers :angle 270)
     ))
 
 (deflisten volume-class :initial "volume" "./audio.sh muted")

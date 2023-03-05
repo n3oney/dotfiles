@@ -188,6 +188,9 @@ local config = {
 			-- You can disable default plugins as follows:
 			-- ["goolord/alpha-nvim"] = { disable = true },
 			{
+				"elkowar/yuck.vim",
+			},
+			{
 				"ggandor/leap.nvim",
 				config = function()
 					require("leap").add_default_mappings()

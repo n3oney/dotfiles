@@ -6,8 +6,8 @@
 "hypr/fonts.conf" = "~/.config/fontconfig/fonts.conf"
 
 [hyprland.variables]
-active_border = "f5c2e7"
-inactive_border = "414458"
+active_border = "30B7DD"
+inactive_border = "437FBE"
 mouse_sensitivity = 0
 sans_font = "SF Pro Display"
 serif_font = "New York"
@@ -15,6 +15,8 @@ mono_font = "FiraCode Nerd Font"
 
 # Local variables:
 # main_monitor
+# main_height
+# main_width
 # secondary_monitor
 # keyboards
 # mouse_sensitivity

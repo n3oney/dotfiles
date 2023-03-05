@@ -55,10 +55,44 @@
 (defwindow bar
   :stacking "fg"
   :monitor 0
-  :reserve (struts :distance "0px" :side "top")
+  :exclusive true
   :windowtype "dock"
   :wm-ignore false
-  :geometry (geometry :x 0 :y 0 :width "60px" :height "100%")
+  :geometry (geometry :x 14 :y 14 :width "46px" :height "${ {{main_height}} - 28 }px")
   :anchor "top left"
   (bar :screen 0)
+)
+
+(deflisten notifications :initial "[]" "/home/neoney/code/notify-receive/target/release/notify-receive")
+
+(defwidget notiflist []
+  (box
+    :orientation "v"
+    :class "notifications"
+    :space-evenly false
+    (for notification in notifications
+        (button 
+          :valign "start"
+          :visible {notification.visible}
+          :onclick "echo ${notification.id} > /var/run/user/1000/notify-receive.pipe"
+        :class "notification"
+        (box :orientation "v" :width 300 :space-evenly false
+         (box :orientation "h"
+           :spacing 8
+           :space-evenly false
+          (label :halign "start" :text {notification.app_name} :class "app_name")
+          (label :halign "end" :text {notification.time} :class "time")
+          )
+         (label :xalign 0 :text {notification.summary} :class "summary" :width 300 :wrap true)
+         (label :xalign 0 :text {notification.body} :class "body" :width 300 :wrap true)
+        )
+        )
+    )))
+
+(defwindow notifs
+  :stacking "overlay"
+  :monitor 0
+  :geometry (geometry :x 12 :y 12)
+  :anchor "top left"
+  (notiflist)
 )

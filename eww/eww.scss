@@ -3,6 +3,7 @@
 }
 
 .ewwbar {
+  font-family: sans;
   border-radius: 12px;
   background: rgba(36, 40, 59, 0.7);
   padding: 12px 0;
@@ -60,9 +61,16 @@
     opacity: 0.3;
   }
 
+  .color_label {
+    transition: color 0.3s ease;
+  }
   // Headphones volume
   .volume:last-child {
     margin-bottom: 12px;
+  }
+
+  .color_button {
+    margin: 0 12px;
   }
 }
 

@@ -2,9 +2,13 @@
   (centerbox :orientation "v"
     :class "ewwbar"
     (box :class "left"
+      :halign "start"
+      :width 46
       :valign "start"
       (left :screen screen))
     (box :class "center"
+      :width 46
+      :halign "start"
       :valign "center"
       (middle :screen screen))
     (box :class "right"
@@ -72,12 +76,38 @@
 )
 
 (defwidget right [screen]
-  (box :orientation "v"
-      :space-evenly false
+  (box
+    :orientation "v"
+    :space-evenly false
     :spacing 12
-     (label :class volume-class :text volume :angle 270)
-     (label :class volume-speakers-class :text volume-speakers :angle 270)
-    ))
+
+    (box
+      :orientation "v"
+      :space-evenly false
+      :spacing 12
+      :hexpand true
+      :halign "start"
+      :width 46
+  
+      (label :class volume-class :text volume :angle 270)
+      (label :class volume-speakers-class :text volume-speakers :angle 270)
+    )
+
+    (eventbox
+      :onhover "eww update show_color=true && eww update show_color2=true"
+      :onhoverlost "eww update show_color=false && eww update show_color2=false"
+
+      (box
+        :orientation "v" 
+        :space-evenly false
+        :spacing 12
+        
+        (label :class "color_label" :text "" :style "color: ${led_color}")
+        (led_color)
+      )
+    )
+  )
+)
 
 (deflisten volume-class :initial "volume" "./audio.sh muted")
 (deflisten volume-speakers-class :initial "volume" "./audio.sh speaker-muted")
@@ -95,36 +125,21 @@
   (bar :screen 0)
 )
 
-(deflisten notifications :initial "[]" "/home/neoney/code/notify-receive/target/release/notify-receive")
+(defvar show_color false)
+(defvar show_color2 false)
 
-(defwidget notiflist []
-  (box
-    :orientation "v"
-    :class "notifications"
-    :space-evenly false
-    (for notification in notifications
-        (button 
-          :valign "start"
-          :visible {notification.visible}
-          :onclick "echo ${notification.id} > /var/run/user/1000/notify-receive.pipe"
-        :class "notification"
-        (box :orientation "v" :width 300 :space-evenly false
-         (box :orientation "h"
-           :spacing 8
-           :space-evenly false
-          (label :halign "start" :text {notification.app_name} :class "app_name")
-          (label :halign "end" :text {notification.time} :class "time")
-          )
-         (label :xalign 0 :text {notification.summary} :class "summary" :width 300 :wrap true)
-         (label :xalign 0 :text {notification.body} :class "body" :width 300 :wrap true)
-        )
-        )
-    )))
+(defwidget led_color []
+  (revealer
+    :transition "slideup"
+    :reveal show_color
+    :duration "550ms"
+    (revealer :transition "slideright"
+      :reveal show_color2
+      :duration "550ms"
 
-(defwindow notifs
-  :stacking "overlay"
-  :monitor 0
-  :geometry (geometry :x 12 :y 12)
-  :anchor "top left"
-  (notiflist)
+      (color-chooser :timeout "1000ms" :class "color_button" :use-alpha false :onchange "hass-color \" {0} \" && eww update led_color=\" {0} \"")
+    )
+  )
 )
+
+(defvar led_color "white")

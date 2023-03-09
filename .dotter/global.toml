@@ -54,6 +54,7 @@ depends = ["hyprland"]
 "eww/eww.yuck" = "~/.config/eww/eww.yuck"
 "eww/eww.scss" = "~/.config/eww/eww.scss"
 "eww/audio.sh" = "~/.config/eww/audio.sh"
+"eww/iphone.sh" = "~/.config/eww/iphone.sh"
 
 
 [neovim.files]

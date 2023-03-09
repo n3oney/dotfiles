@@ -57,6 +57,19 @@
     transition: opacity 0.3s ease;
   }
 
+  .iphone {
+    margin-bottom: 8px;
+    color: #2f9df4;
+    font-weight: 600;
+    font-size: 24px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .iphone.disconnected {
+    opacity: 0.5;
+  }
+
   .volume.muted {
     opacity: 0.3;
   }

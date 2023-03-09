@@ -89,6 +89,7 @@
       :halign "start"
       :width 46
   
+      (label :class "iphone ${iphone_battery.connected ? "connected" : "disconnected"}" :text "${iphone_battery["percentage"]}" :angle 270)
       (label :class volume-class :text volume :angle 270)
       (label :class volume-speakers-class :text volume-speakers :angle 270)
     )
@@ -113,6 +114,8 @@
 (deflisten volume-speakers-class :initial "volume" "./audio.sh speaker-muted")
 (deflisten volume :initial "0" "./audio.sh volume")
 (deflisten volume-speakers :initial "0" "./audio.sh volume-speakers")
+
+(deflisten iphone_battery :initial "{\"percentage\": \"\", \"connected\": false}" "./iphone.sh")
 
 (defwindow bar
   :stacking "fg"

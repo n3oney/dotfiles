@@ -4,6 +4,7 @@
 "hypr/hyprland.conf" = "~/.config/hypr/hyprland.conf"
 "hypr/cleanup_after_start.sh" = "~/.config/hypr/cleanup_after_start.sh"
 "hypr/fonts.conf" = "~/.config/fontconfig/fonts.conf"
+"hypr/portal.sh" = "~/.config/hypr/portal.sh"
 
 [hyprland.variables]
 active_border = "30B7DD"

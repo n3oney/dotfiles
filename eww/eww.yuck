@@ -84,14 +84,30 @@
     (box
       :orientation "v"
       :space-evenly false
-      :spacing 12
+      :spacing 2
       :hexpand true
       :halign "start"
       :width 46
+
+      (revealer
+        :transition "slideup"
+        :duration "300ms"
+        :reveal EWW_BATTERY["BAT0"]
   
-      (label :class "iphone ${iphone_battery.connected ? "connected" : "disconnected"}" :text "${iphone_battery["percentage"]}" :angle 270)
-      (label :class volume-class :text volume :angle 270)
-      (label :class volume-speakers-class :text volume-speakers :angle 270)
+        (label :class "battery ${EWW_BATTERY["BAT0"].status}" :text "${EWW_BATTERY["BAT0"].capacity}")
+      )
+
+      (revealer
+        :transition "slideup"
+        :duration "300ms"
+        :reveal iphone_battery
+
+        (label :class "iphone ${iphone_battery.connected ? "connected" : "disconnected"}" :text "${iphone_battery["percentage"]}")
+      )
+      (label :class volume-class :text volume)
+      {{#if secondary_sink}}
+      (label :class volume-speakers-class :text volume-speakers)
+      {{/if}}
     )
 
     (eventbox

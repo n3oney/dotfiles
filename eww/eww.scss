@@ -52,22 +52,34 @@
   .volume {
     color: #91b6e6;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
     opacity: 1;
     transition: opacity 0.3s ease;
+  }
+
+  .battery {
+    color: #efa5ac;
+    font-weight: 600;
+    font-size: 20px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .battery.Charging {
+    opacity: 1;
   }
 
   .iphone {
     margin-bottom: 8px;
     color: #2f9df4;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
     opacity: 1;
     transition: opacity 0.3s ease;
   }
 
   .iphone.disconnected {
-    opacity: 0.5;
+    opacity: 0.3;
   }
 
   .volume.muted {
@@ -75,11 +87,8 @@
   }
 
   .color_label {
+    margin-top: 8px;
     transition: color 0.3s ease;
-  }
-  // Headphones volume
-  .volume:last-child {
-    margin-bottom: 12px;
   }
 
   .color_button {

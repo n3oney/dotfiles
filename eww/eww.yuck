@@ -92,7 +92,7 @@
       (revealer
         :transition "slideup"
         :duration "300ms"
-        :reveal EWW_BATTERY["BAT0"]
+        :reveal {EWW_BATTERY["BAT0"].capacity >= 0}
   
         (label :class "battery ${EWW_BATTERY["BAT0"].status}" :text "${EWW_BATTERY["BAT0"].capacity}")
       )

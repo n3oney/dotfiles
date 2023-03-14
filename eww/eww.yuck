@@ -91,7 +91,9 @@
   
       (label :class "iphone ${iphone_battery.connected ? "connected" : "disconnected"}" :text "${iphone_battery["percentage"]}" :angle 270)
       (label :class volume-class :text volume :angle 270)
+      {{#if secondary_sink}}
       (label :class volume-speakers-class :text volume-speakers :angle 270)
+      {{/if}}
     )
 
     (eventbox

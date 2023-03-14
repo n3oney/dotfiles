@@ -7,8 +7,8 @@
 "hypr/portal.sh" = "~/.config/hypr/portal.sh"
 
 [hyprland.variables]
-active_border = "30B7DD"
-inactive_border = "437FBE"
+inactive_border = "1C1A42"
+active_border = "445281"
 mouse_sensitivity = 0
 sans_font = "SF Pro Display"
 serif_font = "New York"

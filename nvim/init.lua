@@ -46,30 +46,6 @@ return {
 			end,
 			format_on_save = true,
 		},
-
-		-- Add overrides for LSP server settings, the keys are the name of the server
-		["config"] = {
-			-- Enable auto-save in rust_analyzer
-			rust_analyzer = {
-				on_attach = function(client, buf)
-					local fmt_group = vim.api.nvim_create_augroup("FORMATTING", { clear = true })
-
-					if client.supports_method("textDocument/formatting") then
-						vim.api.nvim_clear_autocmds({ group = fmt_group, buffer = buf })
-
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = fmt_group,
-							buffer = buf,
-							callback = function()
-								vim.lsp.buf.formatting_sync({
-									timeout_ms = 3000,
-								})
-							end,
-						})
-					end
-				end,
-			},
-		},
 	},
 
 	polish = function() end,

@@ -59,4 +59,7 @@ depends = ["hyprland"]
 
 
 [neovim.files]
-"neovim.lua" = "~/.config/nvim/lua/user/init.lua"
+"nvim/init.lua" = "~/.config/nvim/lua/user/init.lua"
+"nvim/options.lua" = "~/.config/nvim/lua/user/options.lua"
+"nvim/mappings.lua" = "~/.config/nvim/lua/user/mappings.lua"
+"nvim/plugins/user.lua" = "~/.config/nvim/lua/user/plugins/user.lua"

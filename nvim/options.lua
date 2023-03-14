@@ -1,14 +1,14 @@
 return {
 	opt = {
 		-- conceallevel = 1,
-		relativenumber = true, -- sets vim.opt.relativenumber
+		relativenumber = true,
 		guifont = {
 			"monospace",
 			":h10",
 		},
 	},
 	g = {
-		mapleader = " ", -- sets vim.g.mapleader
+		mapleader = " ",
 		vimtex_view_method = "zathura",
 		vimtex_compiler_method = "tectonic",
 		tex_conceal = "abdmg",

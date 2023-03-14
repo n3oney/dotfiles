@@ -127,9 +127,12 @@
 )
 
 (deflisten volume-class :initial "volume" "./audio.sh muted")
-(deflisten volume-speakers-class :initial "volume" "./audio.sh speaker-muted")
 (deflisten volume :initial "0" "./audio.sh volume")
+
+{{#if secondary_sink}}
+(deflisten volume-speakers-class :initial "volume" "./audio.sh speaker-muted")
 (deflisten volume-speakers :initial "0" "./audio.sh volume-speakers")
+{{/if}}
 
 (deflisten iphone_battery :initial "{\"percentage\": \"\", \"connected\": false}" "./iphone.sh")
 

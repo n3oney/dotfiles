@@ -63,3 +63,12 @@ depends = ["hyprland"]
 "nvim/options.lua" = "~/.config/nvim/lua/user/options.lua"
 "nvim/mappings.lua" = "~/.config/nvim/lua/user/mappings.lua"
 "nvim/plugins/user.lua" = "~/.config/nvim/lua/user/plugins/user.lua"
+
+[wezterm]
+depends = ["hyprland"]
+
+[wezterm.files]
+"wezterm.lua" = "~/.config/wezterm/wezterm.lua"
+
+[wezterm.variables]
+term_font_size = 10

@@ -19,7 +19,7 @@ end)
 
 return {
 	font = wezterm.font("monospace"),
-	font_size = 10.5,
+	font_size = {{ term_font_size }},
 	term = "wezterm",
 	force_reverse_video_cursor = true,
 	colors = tokyo,

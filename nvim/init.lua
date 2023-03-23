@@ -12,7 +12,7 @@ return {
 		auto_quit = false, -- automatically quit the current session after a successful update
 	},
 
-	colorscheme = "tokyonight-storm",
+	colorscheme = "kanagawa",
 
 	-- Diagnostics configuration (for vim.diagnostics.config({...}))
 	diagnostics = {

@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 -- Doing this so I can (possibly) override some values in the future.
-local tokyo = wezterm.get_builtin_color_schemes()["TokyoNightStorm (Gogh)"]
+local tokyo = wezterm.get_builtin_color_schemes()["kanagawa (Gogh)"]
 
 wezterm.on("user-var-changed", function(window, pane, name, value)
 	if name == "nvim_open" then

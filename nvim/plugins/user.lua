@@ -1,5 +1,13 @@
 return {
 	{
+		"rebelot/kanagawa.nvim",
+		lazy = false,
+	},
+	{
+		"folke/todo-comments.nvim",
+		event = "BufRead",
+	},
+	{
 		"laytan/cloak.nvim",
 		event = "BufRead",
 		config = function()

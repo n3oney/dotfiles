@@ -1,23 +1,23 @@
-(defwidget bar [screen]
-  (centerbox :orientation "v"
+(defwidget bar []
+  (centerbox :orientation "h"
     :class "ewwbar"
-    (box :class "left"
+    (box
+      :class "left"
       :halign "start"
-      :width 46
-      :valign "start"
-      (left :screen screen))
-    (box :class "center"
-      :width 46
+
+      (left))
+    (box
+      :class "center"
       :halign "start"
-      :valign "center"
-      (middle :screen screen))
-    (box :class "right"
-      :valign "end"
-      (right :screen screen))
+      (middle))
+    (box
+      :class "right"
+      :halign "end"
+      (right))
   )
 )
 
-(defwidget left [screen]
+(defwidget left []
   (power)
 )
 
@@ -28,11 +28,12 @@
 (defwidget time []
   (box :orientation "v"
        :class "time"
-    hour minute second))
+       :space-evenly false
+       :spacing 0
+    hour date))
 
-(defpoll hour :interval "1s" "date +%H")
-(defpoll minute :interval "1s" "date +%M")
-(defpoll second :interval "1s" "date +%S")
+(defpoll hour :interval "1s" "date +%H:%M")
+(defpoll date :interval "1s" "date +\"%B %d\"")
 
 (defwidget power []
   (eventbox
@@ -40,20 +41,22 @@
     :onhoverlost "eww update show_power=false"
 
     (box
-      :orientation "v"
+      :orientation "h"
       :space-evenly false
-      :spacing 2
+      :spacing 8
       :class "power"
       (poweroff)
       (revealer
-        :transition "slidedown"
+        :transition "slideright"
         :reveal show_power
         :duration "550ms"
         (box
-          :orientation "v"
+          :orientation "h"
           :space-evenly false
-          :spacing 2
+          :spacing 8
+          {{#if windows}}
           (windows)
+          {{/if}}
           (reboot)
           )
         )
@@ -75,26 +78,31 @@
   (button :class "reboot" :onclick "reboot" "")
 )
 
-(defwidget right [screen]
+(defwidget right []
   (box
-    :orientation "v"
+    :orientation "h"
     :space-evenly false
     :spacing 12
 
     (box
-      :orientation "v"
+      :orientation "h"
       :space-evenly false
-      :spacing 2
+      :spacing 4
       :hexpand true
       :halign "start"
-      :width 46
 
       (revealer
         :transition "slideup"
         :duration "300ms"
         :reveal {EWW_BATTERY["BAT0"].capacity >= 0}
   
-        (label :class "battery ${EWW_BATTERY["BAT0"].status}" :text "${EWW_BATTERY["BAT0"].capacity}")
+        (box
+          :orientation "h"
+          :space-evenly false
+          :spacing 5
+          ;; (label :class "battery-icon ${EWW_BATTERY["BAT0"].status}" :text "")
+          (label :class "battery ${EWW_BATTERY["BAT0"].status}" :text "${EWW_BATTERY["BAT0"].capacity}")
+        )
       )
 
       (revealer
@@ -108,20 +116,6 @@
       {{#if secondary_sink}}
       (label :class volume-speakers-class :text volume-speakers)
       {{/if}}
-    )
-
-    (eventbox
-      :onhover "eww update show_color=true && eww update show_color2=true"
-      :onhoverlost "eww update show_color=false && eww update show_color2=false"
-
-      (box
-        :orientation "v" 
-        :space-evenly false
-        :spacing 12
-        
-        (label :class "color_label" :text "" :style "color: ${led_color}")
-        (led_color)
-      )
     )
   )
 )
@@ -142,26 +136,7 @@
   :exclusive true
   :windowtype "dock"
   :wm-ignore false
-  :geometry (geometry :x 14 :y 14 :width "46px" :height "${ {{main_height}} - 28 }px")
+  :geometry (geometry :x 14 :width "${ {{main_width}} - 28 }px" :height "28px")
   :anchor "top left"
-  (bar :screen 0)
+  (bar)
 )
-
-(defvar show_color false)
-(defvar show_color2 false)
-
-(defwidget led_color []
-  (revealer
-    :transition "slideup"
-    :reveal show_color
-    :duration "550ms"
-    (revealer :transition "slideright"
-      :reveal show_color2
-      :duration "550ms"
-
-      (color-chooser :timeout "1000ms" :class "color_button" :use-alpha false :onchange "hass-color \" {0} \" && eww update led_color=\" {0} \"")
-    )
-  )
-)
-
-(defvar led_color "white")

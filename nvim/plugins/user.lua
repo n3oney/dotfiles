@@ -1,5 +1,9 @@
 return {
 	{
+		"LnL7/vim-nix",
+		ft = "nix",
+	},
+	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
 	},
@@ -244,6 +248,7 @@ return {
 				fmt.eslint_d,
 				fmt.stylua,
 				fmt.rustywind,
+				fmt.alejandra,
 			}
 
 			return opts

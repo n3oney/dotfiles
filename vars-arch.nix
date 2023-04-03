@@ -1,19 +1,24 @@
 {
-  main_monitor = "eDP-1";
-  main_width = 1440;
-  main_height = 900;
-  main_wallpaper = /home/neoney/Wallpapers/Kanagawa.jpg;
-  mouse_sensitivity = 0;
+  main_monitor = "DP-1";
+  main_width = 2560;
+  main_height = 1440;
+  secondary_monitor = "DP-3";
+  main_wallpaper = ./wallpapers/hills.jpg;
+  secondary_wallpaper = ./wallpapers/hills.jpg;
+  mouse_sensitivity = -0.76;
   keyboards = [
-    "apple-inc.-apple-internal-keyboard-/-trackpad"
+    "logitech-g915-tkl-lightspeed-wireless-rgb-mechanical-gaming-keyboard"
+    "logitech-usb-receiver-keyboard"
   ];
-  area_screenshot_keybind = ", XF86LaunchA";
-  active_screenshot_keybind = ", XF86LaunchB";
+  active_screenshot_keybind = ", Print";
+  area_screenshot_keybind = "SHIFT, Print";
+  all_screenshot_keybind = "ALT, Print";
   term_font_size = 7;
+  serif_font = "New York";
   mono_font = "Cozette";
   sans_font = "gg sans";
-  windows = false;
+  windows = true;
   active_border = "F5F4F9";
   inactive_border = "2B2937";
-  secondary_sink = "alsa_output.pci-0000_00_1b.0.analog-stereo";
+  secondary_sink = "$(pactl list sinks | grep -e 'Name: raop' | awk '{print $2}')";
 }

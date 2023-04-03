@@ -5,6 +5,22 @@
   ...
 }:
 with vars; {
+  xdg.configFile."hypr/hyprpaper.conf".text = ''
+    preload=${main_wallpaper}
+    ${
+      if vars ? secondary_wallpaper
+      then "preload=${secondary_wallpaper}"
+      else ""
+    }
+
+    wallpaper = ${main_monitor},${main_wallpaper}
+    ${
+      if vars ? secondary_monitor
+      then "wallpaper = ${secondary_monitor},${secondary_wallpaper}"
+      else ""
+    }
+  '';
+
   xdg.configFile."hypr/hyprland.conf".text = ''
     monitor=${main_monitor},${toString main_width}x${toString main_height}@144,0x0,1
     monitor=${main_monitor},addreserved,40,0,0,0

@@ -8,6 +8,7 @@
   imports = [
     ./hyprland.nix
     ./wezterm.nix
+    ./eww
   ];
 
   home.username = "neoney";

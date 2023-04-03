@@ -8,7 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:guibou/nixGL";
-    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {
@@ -16,7 +15,6 @@
     nixpkgs,
     homeManager,
     nixgl,
-    hyprland,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -26,24 +24,43 @@
       overlays = [nixgl.overlay];
       allowUnfree = true;
     };
+
+    macbookVars = import ./vars-macbook.nix;
+    archVars = import ./vars-arch.nix;
   in {
     homeConfigurations = {
       "neoney@macbook" = homeManager.lib.homeManagerConfiguration {
         pkgs = pkgs;
         modules = [
-          hyprland.homeManagerModules.default
           ./home.nix
         ];
 
         extraSpecialArgs = {
           inherit inputs;
-          hyprland = hyprland;
+          vars = macbookVars;
           utils = import ./utils.nix {
             inherit inputs;
             pkgs = pkgs;
             lib = pkgs.lib;
+            vars = macbookVars;
           };
-          vars = import ./vars.nix;
+        };
+      };
+      "neoney@arch" = homeManager.lib.homeManagerConfiguration {
+        pkgs = pkgs;
+        modules = [
+          ./home.nix
+        ];
+
+        extraSpecialArgs = {
+          inherit inputs;
+          vars = archVars;
+          utils = import ./utils.nix {
+            inherit inputs;
+            pkgs = pkgs;
+            lib = pkgs.lib;
+            vars = archVars;
+          };
         };
       };
     };

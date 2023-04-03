@@ -9,6 +9,7 @@
     };
     nixgl.url = "github:guibou/nixGL";
     hyprpaper.url = "github:hyprwm/hyprpaper";
+    hyprpicker.url = "github:hyprwm/hyprpicker";
   };
 
   outputs = {
@@ -17,18 +18,19 @@
     homeManager,
     nixgl,
     hyprpaper,
+    hyprpicker,
     ...
   } @ inputs: let
     system = "x86_64-linux";
 
     pkgs = import nixpkgs {
       system = system;
-      overlays = [nixgl.overlay];
+      overlays = [nixgl.overlay hyprpaper.overlays.default hyprpicker.overlays.default];
       allowUnfree = true;
     };
 
-    macbookVars = import ./vars-macbook.nix;
-    archVars = import ./vars-arch.nix;
+    macbookVars = import ./vars/macbook.nix;
+    archVars = import ./vars/arch.nix;
   in {
     homeConfigurations = {
       "neoney@macbook" = homeManager.lib.homeManagerConfiguration {

@@ -3,8 +3,8 @@
   main_width = 2560;
   main_height = 1440;
   secondary_monitor = "DP-3";
-  main_wallpaper = ./wallpapers/Kanagawa.jpg;
-  secondary_wallpaper = ./wallpapers/Kanagawa.jpg;
+  main_wallpaper = ../wallpapers/Kanagawa.jpg;
+  secondary_wallpaper = ../wallpapers/Kanagawa.jpg;
   mouse_sensitivity = -0.76;
   keyboards = [
     "logitech-g915-tkl-lightspeed-wireless-rgb-mechanical-gaming-keyboard"

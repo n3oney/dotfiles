@@ -2,7 +2,7 @@
   main_monitor = "eDP-1";
   main_width = 1440;
   main_height = 900;
-  main_wallpaper = ./wallpapers/Kanagawa.jpg;
+  main_wallpaper = ../wallpapers/Kanagawa.jpg;
   mouse_sensitivity = 0;
   keyboards = [
     "apple-inc.-apple-internal-keyboard-/-trackpad"

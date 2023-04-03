@@ -1,10 +1,16 @@
 {
+  pkgs,
   lib,
   utils,
   vars,
   ...
 }:
 with vars; {
+  # Wallpaper config
+  home.packages = [
+    pkgs.hyprpaper
+  ];
+
   xdg.configFile."hypr/hyprpaper.conf".text = ''
     preload=${main_wallpaper}
     ${
@@ -21,6 +27,7 @@ with vars; {
     }
   '';
 
+  # Actual hyprland config
   xdg.configFile."hypr/hyprland.conf".text = ''
     monitor=${main_monitor},${toString main_width}x${toString main_height}@144,0x0,1
     monitor=${main_monitor},addreserved,40,0,0,0
@@ -47,7 +54,7 @@ with vars; {
       else ""
     }
 
-    exec-once=hyprpaper & playerctld & mako
+    exec-once=${lib.getExe pkgs.hyprpaper} & playerctld & mako
     exec-once=eww daemon && eww open bar
 
     # https://wiki.hyprland.org/Configuring/Variables/
@@ -143,7 +150,7 @@ with vars; {
     bind = $mainMod, Return, exec, wezterm start --always-new-process
     bind = $mainMod, W, killactive,
     bind = $mainMod, M, exit,
-    bind = $mainMod, P, exec, hyprpicker -a
+    bind = $mainMod, P, exec, ${lib.getExe pkgs.hyprpicker} -a
     bind = $mainMod, S, togglefloating,
     bind = $mainMod, space, exec, ulauncher-toggle
     bind = $mainMod, T, togglesplit, # dwindle

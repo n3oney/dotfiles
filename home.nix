@@ -44,7 +44,7 @@
 
   programs.starship = {
     enable = true;
-    enableFishIntegration = true;
+    # enableFishIntegration = true; I'd set it to true, but instead I'm doing it manually, since enable_transience is being broken
     settings = {
       format = ''
         ([\[](fg:8)$package$rust$username$hostname$cmd_duration$jobs[\]](fg:8))
@@ -126,6 +126,9 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
+      if test "$TERM" != "dumb"  -a \( -z "$INSIDE_EMACS"  -o "$INSIDE_EMACS" = "vterm" \)
+        eval (${lib.getExe pkgs.starship} init fish)
+      end
       if test -n "$DESKTOP_SESSION"
         source (gnome-keyring-daemon --start 2>/dev/null | sed -rn 's/^([^=]+)=(.*)/set -x \1 \2/p' | psub)
       end

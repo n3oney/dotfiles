@@ -17,6 +17,8 @@
       enable_transience
     '';
     functions = {
+      # neovim wrapper to automatically disable transparency in alacritty and wezterm
+      # and re-enable it after closing it
       nvim = ''
         if test $TERM = "alacritty"
             alacritty msg config window.opacity=1

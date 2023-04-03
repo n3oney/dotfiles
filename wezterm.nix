@@ -1,4 +1,9 @@
-{vars, utils, pkgs, ...}: {
+{
+  vars,
+  utils,
+  pkgs,
+  ...
+}: {
   programs.wezterm = {
     enable = true;
     package = utils.nixGLWrap pkgs.wezterm;
@@ -35,6 +40,8 @@
         indexed = {},
        }
 
+       -- Special listener so that I can have a non-transparent background when in neovim
+       -- in nvim, only the border is transparent, and while I could override it to be the whole BG, that's too distracting
       wezterm.on("user-var-changed", function(window, pane, name, value)
       	if name == "nvim_open" then
       		local overrides = window:get_config_overrides() or {}

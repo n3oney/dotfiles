@@ -8,6 +8,7 @@
   imports = [
     ./hyprland.nix
     ./wezterm.nix
+    ./fonts.nix
     ./eww
   ];
 

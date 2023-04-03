@@ -8,6 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:guibou/nixGL";
+    hyprpaper.url = "github:hyprwm/hyprpaper";
   };
 
   outputs = {
@@ -15,6 +16,7 @@
     nixpkgs,
     homeManager,
     nixgl,
+    hyprpaper,
     ...
   } @ inputs: let
     system = "x86_64-linux";

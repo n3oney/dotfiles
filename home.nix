@@ -23,6 +23,7 @@
     alejandra
     nixgl.nixGLIntel
     discord-canary
+    hyprpaper
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -129,6 +130,7 @@
       if test "$TERM" != "dumb"  -a \( -z "$INSIDE_EMACS"  -o "$INSIDE_EMACS" = "vterm" \)
         eval (${lib.getExe pkgs.starship} init fish)
       end
+
       if test -n "$DESKTOP_SESSION"
         source (gnome-keyring-daemon --start 2>/dev/null | sed -rn 's/^([^=]+)=(.*)/set -x \1 \2/p' | psub)
       end

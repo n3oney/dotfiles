@@ -8,7 +8,7 @@ function handle
 
       set lastws $ws
 
-      set wincount $(hyprctl workspaces -j | jq -r ".[] | select (.id == $ws).windows")
+      set wincount $(hyprctl clients -j | jq -r ". | map(select (.workspace.id == $ws and .floating == false and .mapped == true)) | length")
 
       if test $wincount -eq 1
           echo "nogaps"
@@ -24,7 +24,7 @@ function handle
       or string match -q "openwindow>>*" $argv[1]
       or string match -q "closewindow>>*" $argv[1]
   
-        set wincount $(hyprctl workspaces -j | jq -r ".[] | select (.id == $lastws).windows")
+        set wincount $(hyprctl clients -j | jq -r ". | map(select (.workspace.id == $lastws and .floating == false and .mapped == true)) | length")
 
         if test $wincount -eq 1
             echo "nogaps"

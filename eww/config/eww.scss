@@ -4,6 +4,7 @@
 
 .ewwbar {
   font-family: sans;
+  margin: 0 14px;
   padding: 0 12px;
   background: black;
   border-bottom-left-radius: 12px;
@@ -11,6 +12,14 @@
   border-bottom: 2px solid #eae9ee;
   border-left: 2px solid #eae9ee;
   border-right: 2px solid #eae9ee;
+  transition: all 0.3s ease;
+}
+
+.nogaps {
+    border-radius: 0px;
+    border-left: 2px solid transparent;
+    border-right: 2px solid transparent;
+    margin: 0px;
 }
 
 .bar {
@@ -83,9 +92,9 @@
   }
 
   .iphone {
-    color: #2f9df4;
+    color: white;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     opacity: 1;
     transition: opacity 0.3s ease;
   }

@@ -1,10 +1,9 @@
 (defwidget bar []
   (centerbox :orientation "h"
-    :class "ewwbar"
+    :class "ewwbar ${bar-class}"
     (box
       :class "left"
       :halign "start"
-
       (left))
     (box
       :class "center"
@@ -31,6 +30,8 @@
        :space-evenly false
        :spacing 0
     hour date))
+
+(deflisten bar-class :initial "nogaps" "./bar.sh")
 
 (defpoll hour :interval "1s" "date +%H:%M")
 (defpoll date :interval "1s" "date +\"%B %d\"")
@@ -91,21 +92,20 @@
       (revealer
         :transition "slideup"
         :duration "300ms"
-        :reveal {EWW_BATTERY["BAT0"].capacity >= 0}
+        :reveal {EWW_BATTERY != "" && EWW_BATTERY["BAT0"].capacity >= 0}
   
         (box
           :orientation "h"
           :space-evenly false
           :spacing 5
-          ;; (label :class "battery-icon ${EWW_BATTERY["BAT0"].status}" :text "")
-          (label :class "battery ${EWW_BATTERY["BAT0"].status}" :text "${EWW_BATTERY["BAT0"].capacity}")
+          (label :class "battery ${EWW_BATTERY != "" ? EWW_BATTERY["BAT0"].status : ""}" :text "${EWW_BATTERY != "" ? EWW_BATTERY?.["BAT0"].capacity : ""}")
         )
       )
 
       (revealer
         :transition "slideup"
         :duration "300ms"
-        :reveal iphone_battery
+        :reveal {iphone_battery.percentage != ""}
 
         (label :class "iphone ${iphone_battery.connected ? "connected" : "disconnected"}" :text "${iphone_battery["percentage"]}")
       )
@@ -129,7 +129,7 @@
   :exclusive true
   :windowtype "dock"
   :wm-ignore false
-  :geometry (geometry :x 14 :width "${ 2560 - 28 }px" :height "28px")
+  :geometry (geometry :width "100%" :height "28px")
   :anchor "top left"
   (bar)
 )

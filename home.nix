@@ -3,6 +3,7 @@
   pkgs,
   lib,
   vars,
+  customNeovim,
   ...
 }: {
   home.username = "neoney";
@@ -25,7 +26,10 @@
     alejandra
     nixgl.nixGLIntel
     hyprpicker
+    customNeovim.neovim
   ];
+
+  programs.mpv.enable = true;
 
   programs.git = {
     enable = true;

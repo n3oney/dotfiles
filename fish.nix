@@ -35,7 +35,7 @@
           end
       '';
       hd = ''
-        home-manager switch --flake ~/.config/home-manager
+        home-manager switch --flake ~/.config/home-manager $argv
       '';
     };
   };

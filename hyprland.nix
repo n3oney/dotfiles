@@ -135,6 +135,7 @@ in
       }
 
       dwindle {
+          no_gaps_when_only = yes
           pseudotile = yes
           preserve_split = yes
       }

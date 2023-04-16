@@ -17,7 +17,13 @@
 )
 
 (defwidget left []
-  (power)
+  (box :orientation "h"
+    :space-evenly false
+    :spacing 12
+  
+    (power)
+    (listeners)
+  )
 )
 
 (defwidget middle []
@@ -26,12 +32,44 @@
 
 (defwidget time []
   (box :orientation "v"
-       :class "time"
+       :class "time ${microphone-listeners != "0" ? "mic-used" : ""}"
        :space-evenly false
        :spacing 0
     hour date))
 
+(defwidget listeners []
+  (box :orientation "h" :space-evenly false :spacing 10 :valign "center"
+    (revealer
+      :transition "slideright"
+      :reveal {microphone-listeners != "0"}
+
+      (label
+        :class "microphone-listeners"
+        :tooltip "Some application is using the microphone."
+        :width 10
+        :height 10
+        :text ""
+      )
+    )
+    (revealer
+      :transition "slideright"
+      :reveal {screenshares != "0"}
+
+      (label
+        :class "screenshares"
+        :tooltip "Some application is recording the screen."
+        :width 10
+        :height 10
+        :text ""
+      )
+    )
+  )
+)
+
 (deflisten bar-class :initial "nogaps" "./bar.sh")
+
+(deflisten microphone-listeners :initial "0" "./mic.sh")
+(deflisten screenshares :initial "0" "./screenshare.sh")
 
 (defpoll hour :interval "1s" "date +%H:%M")
 (defpoll date :interval "1s" "date +\"%B %d\"")

@@ -145,6 +145,8 @@ in
 
       windowrulev2 = nofocus,class:audacity,floating:1
 
+      windowrulev2 = idleinhibit focus,title:^(YouTube on TV.*)$
+
 
 
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more

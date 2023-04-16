@@ -3,7 +3,7 @@
 set lastws 2
 
 function handle
-  if string match -q "workspace>>?" $argv[1]
+  if string match -q -r "^workspace>>((10)|\d)\$" $argv[1]
       set ws $(string sub -s 12 $argv[1])
 
       set lastws $ws

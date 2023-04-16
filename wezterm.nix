@@ -10,6 +10,12 @@
     extraConfig = ''
       local wezterm = require("wezterm")
 
+      local config = {}
+
+      if wezterm.config_builder then
+        config = wezterm.config_builder()
+      end
+
       -- Doing this so I can (possibly) override some values in the future.
       local colors = {
         ansi = {
@@ -56,17 +62,17 @@
       	end
       end)
 
-      return {
-      	font = wezterm.font("monospace"),
-      	font_size = ${toString vars.term_font_size},
-      	term = "wezterm",
-      	force_reverse_video_cursor = true,
-      	colors = colors,
-      	freetype_load_target = "Light",
-      	window_background_opacity = 0.7,
-      	enable_tab_bar = false,
-      	default_cursor_style = "SteadyBar",
-      }
+      config.font = wezterm.font("monospace")
+      config.font_size = ${toString vars.term_font_size}
+      config.term = "wezterm"
+      config.force_reverse_video_cursor = true
+      config.colors = colors
+      config.freetype_load_target = "Light"
+      config.window_background_opacity = 0.7
+      config.enable_tab_bar = false
+      config.default_cursor_style = "SteadyBar"
+
+      return config
     '';
   };
 }

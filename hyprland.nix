@@ -290,6 +290,8 @@ in
 
       exec-once=portal.sh
 
+      exec-once=arrpc &
+
       exec-once=swayidle timeout 300 'physlock -ldms && swaylock && physlock -Ld' timeout 360 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' timeout 420 'test $(mpstat -o JSON 1 3 | jq -r ".sysstat.hosts[0].statistics[0]["cpu-load"][0].usr | floor") -lt 80 && systemctl suspend'
     '';
   }

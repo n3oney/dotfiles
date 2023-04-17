@@ -17,10 +17,13 @@ function handle
       end
   end
   if string match -q "fullscreen>>?" $argv[1]
-      set maximized $(string sub -s 13 $argv[1])
+
       set wincount $(hyprctl clients -j | jq -r ". | map(select (.workspace.id == $lastws and .floating == false and .mapped == true)) | length")
+      set fswincount $(hyprctl clients -j | jq -r ". | map(select (.workspace.id == $lastws and .fullscreen == true and .mapped == true)) | length")
+
       if test $wincount -eq 1
-      or test $maximized -eq 1
+        or test $fswincount -ne 0
+
         echo "nogaps"
       else
         echo ""

@@ -16,7 +16,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     homeManager,
     nixgl,
@@ -37,6 +36,7 @@
 
     configModule = {
       config.vim = {
+        wordWrap = false;
         comments.comment-nvim = {
           enable = true;
           mappings = {
@@ -68,10 +68,18 @@
             enable = true;
             formatter = "alejandra";
           };
+          rust = {
+            enable = true;
+          };
         };
+        autocomplete.enable = true;
         visuals = {
           enable = true;
           nvimWebDevicons.enable = true;
+          cellularAutomaton = {
+            enable = true;
+            mappings.makeItRain = "<leader>bruh";
+          };
         };
         treesitter = {
           enable = true;

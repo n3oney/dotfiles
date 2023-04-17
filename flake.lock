@@ -938,8 +938,8 @@
         "zig": "zig"
       },
       "locked": {
-        "lastModified": 1681335775,
-        "narHash": "sha256-IdzvtvoIbVPBK5o1qdUCwRFb0fZw8oCnckFbCBku+cE=",
+        "lastModified": 1681336689,
+        "narHash": "sha256-hsKzgzhz67b2m2y5K6Q5Y93Soi6TZK+YyIGAqZTDNaM=",
         "type": "git",
         "url": "file:///home/neoney/code/neovim-flake"
       },

@@ -131,7 +131,7 @@ in
           animation = windowsOut, 1, 3, default, popin 80%
           animation = border, 1, 3, default
           animation = fade, 1, 4, default
-          animation = workspaces, 1, 4, default, slidevert
+          animation = workspaces, 1, 4, default, slide
       }
 
       dwindle {

@@ -10,8 +10,8 @@ function handle
   end
 
   if string match -q "fullscreen>>?" $argv[1]
-
     or string match -q -r "^workspace>>((10)|\d)\$" $argv[1]
+
       set wincount $(hyprctl clients -j | jq -r ". | map(select (.workspace.id == $lastws and .floating == false and .mapped == true)) | length")
       set fswincount $(hyprctl clients -j | jq -r ". | map(select (.workspace.id == $lastws and .fullscreen == true and .mapped == true)) | length")
 

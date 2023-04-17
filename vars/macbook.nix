@@ -10,6 +10,7 @@
   area_screenshot_keybind = ", XF86LaunchA";
   active_screenshot_keybind = ", XF86LaunchB";
   term_font_size = 7;
+  serif_font = "New York";
   mono_font = "Cozette";
   sans_font = "gg sans";
   windows = false;

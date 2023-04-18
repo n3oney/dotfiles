@@ -37,12 +37,21 @@
     configModule = {
       config.vim = {
         wordWrap = false;
+        theme = {
+          enable = true;
+          name = "catppuccin";
+          style = "mocha";
+        };
         comments.comment-nvim = {
           enable = true;
           mappings = {
             toggleCurrentLine = "<leader>/";
             toggleSelectedLine = "<leader>/";
           };
+        };
+        telescope.enable = true;
+        notes.todo-comments = {
+          enable = true;
         };
         tabline.nvimBufferline = {
           enable = true;
@@ -60,16 +69,26 @@
           };
         };
         lsp = {
+          trouble.enable = true;
           enable = true;
           formatOnSave = true;
           lightbulb.enable = true;
           lspSignature.enable = true;
+        };
+        languages = {
+          ts = {
+            enable = true;
+            treesitter.enable = true;
+            lsp.enable = true;
+            format.enable = true;
+            extraDiagnostics.enable = true;
+          };
+          rust.enable = true;
           nix = {
             enable = true;
-            formatter = "alejandra";
-          };
-          rust = {
-            enable = true;
+            treesitter.enable = true;
+            lsp.enable = true;
+            format.enable = true;
           };
         };
         autocomplete.enable = true;
@@ -93,7 +112,6 @@
           };
         };
         viAlias = false;
-        theme.enable = true;
         terminal.toggleterm = {
           enable = true;
           mappings.open = "<leader>tv";

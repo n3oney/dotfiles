@@ -11,6 +11,8 @@ in
     # Wallpaper config
     home.packages = [
       pkgs.hyprpaper
+      pkgs.ydotool
+      pkgs.wlsunset
     ];
 
     xdg.configFile."hypr/hyprpaper.conf".text = ''
@@ -259,6 +261,10 @@ in
       bindm = $mainMod, mouse:272, movewindow
       bindm = $mainMod, mouse:273, resizewindow
 
+
+      # Text keybindings because why not
+      bindr = $mainMod CTRL, 1, exec, echo "+:hesrightyouknow:" | ydotool type -d 0 -H 2 -f -
+
       windowrulev2 = workspace 2,class:firefoxdeveloperedition
 
       windowrulev2 = workspace ${
@@ -295,6 +301,8 @@ in
       exec-once=arrpc &
 
       exec-once=wlsunset -l 52.2 -L 21 &
+
+      exec-once=ydotoold &
 
       exec-once=swayidle timeout 300 'physlock -ldms && swaylock && physlock -Ld' timeout 360 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' timeout 420 'test $(mpstat -o JSON 1 3 | jq -r ".sysstat.hosts[0].statistics[0]["cpu-load"][0].usr | floor") -lt 80 && systemctl suspend'
     '';

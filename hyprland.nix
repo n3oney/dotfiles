@@ -263,7 +263,7 @@ in
 
 
       # Text keybindings because why not
-      bindr = $mainMod CTRL, 1, exec, echo "+:hesrightyouknow:" | ydotool type -d 0 -H 2 -f -
+      bind = $mainMod , z, exec, sleep 1 && echo "+:hesrightyouknow:" | ydotool type -d 0 -H 2 -f -
 
       windowrulev2 = workspace 2,class:firefoxdeveloperedition
 

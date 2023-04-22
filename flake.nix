@@ -34,6 +34,7 @@
       allowUnfree = true;
     };
 
+    # This stuff really needs to be moved to a separate file lol
     configModule = {
       config.vim = {
         wordWrap = false;

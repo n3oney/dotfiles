@@ -20,5 +20,5 @@
   windows = true;
   active_border = "F5F4F9";
   inactive_border = "2B2937";
-  secondary_sink = "$(pactl list sinks | grep -e 'Name: raop' | awk '{print $2}')";
+  secondary_sink = "$(pactl --format json list sinks | jaq -r '. | map(select (.description == \"raspi\")) | .[0].name')";
 }

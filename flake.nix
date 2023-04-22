@@ -83,7 +83,12 @@
             format.enable = true;
             extraDiagnostics.enable = true;
           };
-          rust.enable = true;
+          rust = {
+            enable = true;
+            lsp.enable = true;
+            treesitter.enable = true;
+            crates.enable = true;
+          };
           nix = {
             enable = true;
             treesitter.enable = true;

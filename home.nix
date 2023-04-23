@@ -3,7 +3,7 @@
   pkgs,
   lib,
   vars,
-  customNeovim,
+  neovim-flake,
   ...
 }: {
   home.username = "neoney";
@@ -13,12 +13,14 @@
   nixpkgs.config.allowUnfreePredicate = _: true;
 
   imports = [
+    neovim-flake.homeManagerModules.default
     ./hyprland.nix
     ./wezterm.nix
     ./fonts.nix
     ./starship.nix
     ./fish.nix
     ./eww
+    ./neovim.nix
   ];
 
   home.packages = with pkgs; [
@@ -26,7 +28,6 @@
     alejandra
     nixgl.nixGLIntel
     hyprpicker
-    customNeovim.neovim
   ];
 
   programs.mpv.enable = true;

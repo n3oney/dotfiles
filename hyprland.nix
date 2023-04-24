@@ -161,7 +161,7 @@ in
       bind = $mainMod, M, exit,
       bind = $mainMod, P, exec, hyprpicker -a
       bind = $mainMod, S, togglefloating,
-      bind = $mainMod, space, exec, ulauncher-toggle
+      bind = $mainMod, space, exec, anyrun
       bind = $mainMod, T, togglesplit, # dwindle
 
       bind = $mainMod, Q, togglespecialworkspace,
@@ -287,8 +287,6 @@ in
 
       layerrule = blur,gtk-layer-shell
       layerrule = ignorezero,gtk-layer-shell
-
-      exec-once = ulauncher --no-window &
 
       layerrule = noanim, ^(selection)$
 

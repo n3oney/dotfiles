@@ -13,6 +13,10 @@
     eww.url = "github:elkowar/eww";
     rust-overlay.url = "github:oxalica/rust-overlay";
     neovim-flake.url = "/home/neoney/code/neovim-flake";
+    anyrun = {
+      url = "github:n3oney/anyrun/feature/nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -24,13 +28,21 @@
     eww,
     rust-overlay,
     neovim-flake,
+    anyrun,
     ...
   } @ inputs: let
     system = "x86_64-linux";
 
     pkgs = import nixpkgs {
       system = system;
-      overlays = [nixgl.overlay hyprpaper.overlays.default hyprpicker.overlays.default eww.overlays.default rust-overlay.overlays.default];
+      overlays = [
+        nixgl.overlay
+        hyprpaper.overlays.default
+        hyprpicker.overlays.default
+        eww.overlays.default
+        rust-overlay.overlays.default
+        anyrun.overlay
+      ];
       allowUnfree = true;
     };
 

@@ -21,6 +21,7 @@
     ./fish.nix
     ./eww
     ./neovim.nix
+    ./anyrun.nix
   ];
 
   home.packages = with pkgs; [

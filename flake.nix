@@ -10,8 +10,6 @@
     nixgl.url = "github:guibou/nixGL";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     hyprpicker.url = "github:hyprwm/hyprpicker";
-    eww.url = "github:elkowar/eww";
-    rust-overlay.url = "github:oxalica/rust-overlay";
     neovim-flake.url = "/home/neoney/code/neovim-flake";
     anyrun = {
       url = "github:kirottu/anyrun";
@@ -25,8 +23,6 @@
     nixgl,
     hyprpaper,
     hyprpicker,
-    eww,
-    rust-overlay,
     neovim-flake,
     anyrun,
     ...
@@ -39,8 +35,6 @@
         nixgl.overlay
         hyprpaper.overlays.default
         hyprpicker.overlays.default
-        eww.overlays.default
-        rust-overlay.overlays.default
         anyrun.overlay
       ];
       allowUnfree = true;

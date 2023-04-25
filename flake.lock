@@ -24,16 +24,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1682373370,
-        "narHash": "sha256-73TRXJUvTaWYfKhM2PoFNHWxUYWk3YD5hO3bSCOTqKY=",
-        "owner": "n3oney",
+        "lastModified": 1682448323,
+        "narHash": "sha256-e7o5r+5f+0cpbGobXYk11YOyh03uPrZ5gd2kYrgR3Mw=",
+        "owner": "kirottu",
         "repo": "anyrun",
-        "rev": "593756481650ce25dfdfcd415e01b507f2cef2bb",
+        "rev": "b4f1f292bb0fb18e652f18059dbce332dbff7d93",
         "type": "github"
       },
       "original": {
-        "owner": "n3oney",
-        "ref": "feature/nix-flake",
+        "owner": "kirottu",
         "repo": "anyrun",
         "type": "github"
       }

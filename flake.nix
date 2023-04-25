@@ -14,7 +14,7 @@
     rust-overlay.url = "github:oxalica/rust-overlay";
     neovim-flake.url = "/home/neoney/code/neovim-flake";
     anyrun = {
-      url = "github:n3oney/anyrun/feature/nix-flake";
+      url = "github:kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

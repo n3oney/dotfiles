@@ -1,11 +1,8 @@
 {
-  config,
   pkgs,
-  lib,
-  vars,
   neovim-flake,
   ...
-}: {
+} @ inputs: {
   home.username = "neoney";
   home.homeDirectory = "/home/neoney";
 
@@ -27,8 +24,8 @@
   home.packages = with pkgs; [
     neofetch
     alejandra
+
     nixgl.nixGLIntel
-    hyprpicker
   ];
 
   programs.mpv.enable = true;

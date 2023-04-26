@@ -10,6 +10,7 @@
     nixgl.url = "github:guibou/nixGL";
     hyprpaper.url = "github:hyprwm/hyprpaper";
     hyprpicker.url = "github:hyprwm/hyprpicker";
+    hyprcontrib.url = "github:hyprwm/contrib";
     neovim-flake.url = "/home/neoney/code/neovim-flake";
     anyrun = {
       url = "github:kirottu/anyrun";
@@ -25,6 +26,7 @@
     hyprpicker,
     neovim-flake,
     anyrun,
+    hyprcontrib,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -36,6 +38,7 @@
         hyprpaper.overlays.default
         hyprpicker.overlays.default
         anyrun.overlay
+        hyprcontrib.overlays.default
       ];
       allowUnfree = true;
     };

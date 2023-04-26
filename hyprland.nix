@@ -8,11 +8,28 @@
   windowSwitchBind = bind: direction: "bind = $mainMod, ${bind}, exec, hyprctl activewindow -j | $(jq -r \"if .fullscreen then \\\"hyprctl dispatch focusmonitor ${direction}\\\" else \\\"hyprctl dispatch movefocus ${direction}\\\" end\")";
 in
   with vars; {
-    # Wallpaper config
-    home.packages = [
-      pkgs.hyprpaper
-      pkgs.ydotool
-      pkgs.wlsunset
+    home.packages = with pkgs; [
+      wl-clipboard
+
+      hyprpaper
+
+      ydotool
+
+      wlsunset
+
+      hyprpicker
+      grimblast
+
+      (writeShellScriptBin
+        "freezeshot"
+        ''
+          ${hyprpicker}/bin/hyprpicker -r -z &
+          picker_proc=$!
+
+          ${grimblast}/bin/grimblast save area -
+
+          kill $picker_proc
+        '')
     ];
 
     services.kdeconnect.enable = true;

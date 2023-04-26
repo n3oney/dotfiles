@@ -136,7 +136,7 @@
           :orientation "h"
           :space-evenly false
           :spacing 5
-          (label :class "battery ${EWW_BATTERY != "" ? EWW_BATTERY["BAT0"].status : ""}" :text "${EWW_BATTERY != "" ? EWW_BATTERY?.["BAT0"].capacity : ""}")
+          (label :class "battery ${EWW_BATTERY != "" ? EWW_BATTERY["BAT0"].status : ""}" :text "${EWW_BATTERY != "" ? EWW_BATTERY["BAT0"].capacity : ""}")
         )
       )
 

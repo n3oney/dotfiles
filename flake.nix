@@ -16,6 +16,14 @@
       url = "github:kirottu/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    eww = {
+      url = "github:elkowar/eww";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -39,6 +47,8 @@
         hyprpicker.overlays.default
         anyrun.overlay
         hyprcontrib.overlays.default
+        inputs.eww.overlays.default
+        inputs.rust-overlay.overlays.default
       ];
       allowUnfree = true;
     };

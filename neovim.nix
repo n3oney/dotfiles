@@ -77,6 +77,13 @@
             lsp.enable = true;
             format.enable = true;
           };
+          html = {
+            enable = true;
+            treesitter = {
+              enable = true;
+              autotagHtml = true;
+            };
+          };
         };
         autocomplete.enable = true;
         visuals = {
@@ -90,6 +97,7 @@
         treesitter = {
           enable = true;
           context.enable = true;
+          fold = true;
         };
         maps = {
           normal."<leader>m" = {

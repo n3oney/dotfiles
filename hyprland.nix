@@ -173,7 +173,7 @@ in
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
       $mainMod = SUPER
 
-      bind = $mainMod, Return, exec, wezterm start --always-new-process
+      bind = $mainMod, Return, exec, foot
       bind = $mainMod, W, killactive,
       bind = $mainMod, M, exit,
       bind = $mainMod, P, exec, hyprpicker -a

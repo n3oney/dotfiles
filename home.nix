@@ -2,7 +2,7 @@
   pkgs,
   neovim-flake,
   ...
-} @ inputs: {
+}: {
   home.username = "neoney";
   home.homeDirectory = "/home/neoney";
 
@@ -12,7 +12,7 @@
   imports = [
     neovim-flake.homeManagerModules.default
     ./hyprland.nix
-    ./wezterm.nix
+    ./foot.nix
     ./fonts.nix
     ./starship.nix
     ./fish.nix

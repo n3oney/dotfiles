@@ -1,3 +1,4 @@
+### deprecated, see `foot.nix`
 {
   vars,
   utils,

@@ -29,6 +29,7 @@
   home.packages = with pkgs; [
     neofetch
     alejandra
+    jaq
 
     nixgl.nixGLIntel
   ];

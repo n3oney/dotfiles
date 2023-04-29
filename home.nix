@@ -31,6 +31,8 @@
     alejandra
     jaq
 
+    leveldb-cli
+
     nixgl.nixGLIntel
   ];
 

@@ -49,6 +49,7 @@
         hyprcontrib.overlays.default
         inputs.eww.overlays.default
         inputs.rust-overlay.overlays.default
+        (import ./pkgs/overlays)
       ];
       allowUnfree = true;
     };

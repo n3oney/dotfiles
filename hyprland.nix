@@ -303,6 +303,7 @@ in
       windowrulev2 = fullscreen,title:^(PAUSESHOT)$
 
       layerrule = blur,gtk-layer-shell
+      layerrule = blur,anyrun
       layerrule = ignorezero,gtk-layer-shell
 
       layerrule = noanim, ^(selection)$

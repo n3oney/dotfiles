@@ -1,3 +1,6 @@
+# deprecated!
+I've since moved to NixOS. New config available [here](https://github.com/n3oney/nixus).
+
 # neoney's dotfiles
 
 - how 2 use?
